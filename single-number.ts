@@ -18,14 +18,17 @@ var singleNumber = function(nums) {
     var possibles = [];
     
     for (let i = 0; i < nums.length; i++) {
+        // Add unique numbers to hashmap
         if (!hashmap.has(nums[i])) {
             hashmap.set(nums[i], i);
             possibles.push(nums[i]);
         } else {
+            // Remove duplicates from the array of possible answers
             possibles = possibles.filter(num => num !== nums[i]);
         }
     }
     
+    // All that is left is the unique single number
     return possibles[0];
     
 };
